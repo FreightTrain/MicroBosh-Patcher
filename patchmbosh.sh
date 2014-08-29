@@ -34,6 +34,10 @@ echo "Patching TMP directory location"
 mv /var/vcap/data/tmp /var/vcap/store/.
 ln -s /var/vcap/store/tmp /var/vcap/data/.
 
+echo "Restarting services"
+
+monit restart all
+
 echo "-----------------------"
 echo "          Done!        "
 echo "Check for errors above!"
