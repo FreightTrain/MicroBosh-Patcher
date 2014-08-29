@@ -1,0 +1,11 @@
+--- create_server.rb	2014-08-29 16:12:37.000000000 +0100
++++ create_server.rb	2014-08-29 16:12:16.000000000 +0100
+@@ -8,6 +8,7 @@
+             'server' => {
+               'flavorRef'  => flavor_ref,
+               'imageRef'   => image_ref,
+-              'name'       => name
++              'name'       => name,
++              'config_drive' => true
+             }
+ 
