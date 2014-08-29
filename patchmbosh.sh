@@ -6,7 +6,7 @@ echo "----------------------------------------------------"
 echo ""
 echo "You will be prompted for your SUDO password..."
 
-cd ~ ; wget https://raw.githubusercontent.com/FreightTrain/MicroBosh-Patcher/master/create_server.rb.patch
+cd ~ ; wget --no-check-certificate https://raw.githubusercontent.com/FreightTrain/MicroBosh-Patcher/master/create_server.rb.patch
 
 
 echo "Finding..."
