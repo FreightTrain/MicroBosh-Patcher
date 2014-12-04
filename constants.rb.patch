@@ -1,0 +1,28 @@
+--- constants.rb 2014-12-03 17:53:39.772681591 +0000
++++ constants.rb 2014-12-04 16:08:57.001007914 +0000
+@@ -108,7 +108,7 @@
+   DEFAULTS = {
+     :chunk_size           => CHUNK_SIZE || DEFAULT_CHUNK_SIZE,
+     :ciphers              => 'HIGH:!SSLv2:!aNULL:!eNULL:!3DES',
+-    :connect_timeout      => 60,
++    :connect_timeout      => 600,
+     :debug_request        => false,
+     :debug_response       => false,
+     :headers              => {
+@@ -127,14 +127,14 @@
+     :nonblock             => true,
+     :omit_default_port    => false,
+     :persistent           => false,
+-    :read_timeout         => 60,
++    :read_timeout         => 600,
+     :retry_limit          => DEFAULT_RETRY_LIMIT,
+     :ssl_verify_peer      => true,
+     :tcp_nodelay          => false,
+     :thread_safe_sockets  => true,
+     :uri_parser           => URI,
+     :versions             => VERSIONS,
+-    :write_timeout        => 60
++    :write_timeout        => 600
+   }
+
+ end

@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 echo "----------------------------------------------------"
-echo "PATCHING MICROBOSH DIRECTOR FOR NIMBUS COMPATABILITY"
+echo "PATCHING MICROBOSH FOG FOR NIMBUS/CCS COMPATABILITY"
 echo "----------------------------------------------------"
 echo ""
 
@@ -24,6 +24,30 @@ echo "Checking..."
 for patchedfile in $(<~/patchlist.txt); 
 
 do if grep -q "config_drive" "$patchedfile" ;
+then echo "File $patchedfile SUCCEESS"; 
+else echo "File $patchedfile FAILED"; 
+fi ;
+done
+
+echo "-----------------------------------------------------"
+echo "PATCHING MICROBOSH EXCON FOR NIMBUS/CCS COMPATABILITY"
+echo "-----------------------------------------------------"
+echo ""
+
+cd ~ ; wget --no-check-certificate https://raw.githubusercontent.com/FreightTrain/MicroBosh-Patcher/master/constants.rb.patch
+
+
+echo "Finding..."
+find /var/vcap -iname constants.rb | grep excon > ~/patchlist2.txt
+
+echo "Patching..."
+for i in $(<~/patchlist2.txt) ; do patch -p0 $i ~/constants.rb.patch ; done
+
+echo "Checking..."
+
+for patchedfile in $(<~/patchlist2.txt); 
+
+do if grep -q "600" "$patchedfile" ;
 then echo "File $patchedfile SUCCEESS"; 
 else echo "File $patchedfile FAILED"; 
 fi ;
